@@ -9,6 +9,7 @@ import Heading from "../Heading";
 import { categories } from "../Navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
+import dynamic from "next/dynamic";
 
 // check to see how you can make this steps better and how it persists
 enum STEPS {
@@ -46,6 +47,15 @@ const RentModal = () => {
   });
 
   const category = watch("category");
+  const location = watch("location");
+
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map"), {
+        ssr: false,
+      }),
+    [location]
+  );
 
   // by default setValue will set the value but not re render the page
   const setCustomValue = (id: string, value: any) => {
@@ -112,7 +122,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading title="Where is your place located?" subtitle="Help guests find you!" />
-        <CountrySelect />
+        <CountrySelect value={location} onChange={(value) => setCustomValue("location", value)} />
+        <Map center={location?.latlng} />
       </div>
     );
   }
