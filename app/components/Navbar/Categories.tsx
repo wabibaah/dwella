@@ -96,11 +96,6 @@ export const categories = [
     icon: IoDiamond,
     description: "This property is luxurious!",
   },
-  {
-    label: "Lux",
-    icon: IoDiamond,
-    description: "This property is luxurious!",
-  },
 ];
 
 const Categories = () => {
