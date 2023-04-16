@@ -17,3 +17,10 @@ in authorized redirect uri s "http://localhost:300/api/auth/callback/google"
 copy your client id and client secret
 
 if your font is not loading, just delete the .next folder (next.js cache) and refresh / rebuild
+
+// creating cloudinary account
+click on the dashboard
+cloud name, api key, api secret ,
+go to cloudinary and create an upload preset
+go to settings in the lower left corner, click on upload , do the upload presets , add upload preset , signing mode must be set to unsigned .
+copy the upload preset name
