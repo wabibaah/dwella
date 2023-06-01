@@ -7,7 +7,12 @@ export default async function getListings() {
         createdAt: "desc",
       },
     });
-    return listings;
+    // return listings;  // instead of returning listings, he is gonna return safe listing
+    const safeListings = listings.map((listing) => ({
+      ...listing,
+      createdAt: listing.createdAt.toISOString(),
+    }));
+    return safeListings;
   } catch (err: any) {
     throw new Error(err);
   }
