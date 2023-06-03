@@ -61,6 +61,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   }, [reservation]);
   return (
     <div
+      // make sure there is no api before the route because this is just client routing like the react one
       onClick={() => router.push(`/listings/${data.id}`)}
       className="
       col-span-1
