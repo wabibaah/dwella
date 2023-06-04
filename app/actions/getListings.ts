@@ -1,8 +1,21 @@
 import prisma from "@/app/libs/prismadb";
 
-export default async function getListings() {
+export interface IListingParams {
+  userId?: string;
+}
+
+export default async function getListings(params: IListingParams) {
   try {
+    const { userId } = params;
+
+    let query: any = {};
+
+    if (userId) {
+      query.userId = userId;
+    }
+
     const listings = await prisma.listing.findMany({
+      where: query,
       orderBy: {
         createdAt: "desc",
       },
@@ -18,5 +31,6 @@ export default async function getListings() {
   }
 }
 
-// this is all we need to create our listing
+// this is all we need to get our listing
 // we don't need an api route,
+// we need api (like the one in the folder) to create listings
