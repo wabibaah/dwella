@@ -9,6 +9,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
+import SearchModal from "./components/modals/SearchModal";
 
 export const metadata = {
   title: "AirBnB clone Optimised",
@@ -28,6 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ToasterProvider />
           <RegisterModal />
           <RentModal />
+          <SearchModal />
           <LoginModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
